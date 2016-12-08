@@ -22,8 +22,7 @@ public class CRT {
         return EuclidianAlgorithm.calculateExtendedEuclidianAlgorithm(firstPrimeNumber,secondPrimeNumber);
     }
 
-    public BigInteger pow(BigInteger basis, BigInteger exponent) {
-        System.out.println();
+    public BigInteger multiplikate(BigInteger basis, BigInteger exponent) {
         prepareTwoOtherImportantValues(basis,exponent);
         BigInteger y = secondStep();
         return thirdStep(y, exponent);
