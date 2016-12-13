@@ -4,7 +4,7 @@ import java.util.Random;
 /**
  * Created by Traute on 08.12.2016.
  */
-public class CRT {
+public class CRTForMulitplikation {
 
     BigInteger firstPrimeNumber;
     BigInteger secondPrimeNumber;
@@ -12,7 +12,7 @@ public class CRT {
     BigInteger secondPlaceHolder;
     static BigInteger z ;
 
-    public CRT(BigInteger firstPrimeNumber, BigInteger secondPrimeNumber){
+    public CRTForMulitplikation(BigInteger firstPrimeNumber, BigInteger secondPrimeNumber){
         this.firstPrimeNumber= firstPrimeNumber;
         this.secondPrimeNumber = secondPrimeNumber;
         z = firstStep();

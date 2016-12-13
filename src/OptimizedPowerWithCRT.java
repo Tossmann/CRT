@@ -1,12 +1,11 @@
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 /**
  * Created by andreydelany on 08/12/2016.
  */
-public class PowerWithCRT {
+public class OptimizedPowerWithCRT {
     BigInteger x = new BigInteger("0");
     BigInteger y = new BigInteger("0");
     BigInteger multiplikationsCounter = new BigInteger("0");
@@ -16,10 +15,10 @@ public class PowerWithCRT {
     ArrayList<BigInteger> correspondingValues = new ArrayList<>();
     BigInteger nextExponent = new BigInteger("0");
     BigInteger missingExponents = new BigInteger("0");
-    CRT crt;
+    CRTForMulitplikation crtForMulitplikation;
 
-    public PowerWithCRT(CRT crt) {
-        this.crt = crt;
+    public OptimizedPowerWithCRT(CRTForMulitplikation crtForMulitplikation) {
+        this.crtForMulitplikation = crtForMulitplikation;
     }
 
     public BigInteger calculate(BigInteger basis, BigInteger exponent) {
@@ -69,7 +68,7 @@ public class PowerWithCRT {
         multiplikationsCounter = multiplikationsCounter.add(BigInteger.ONE);
         currenExponent = currenExponent.add(currenExponent);
         nextExponent = currenExponent.add(currenExponent);
-        currentValue = crt.multiplikate(currentValue,currentValue);
+        currentValue = crtForMulitplikation.multiplikate(currentValue,currentValue);
         updateLists();
     }
 
@@ -109,6 +108,6 @@ public class PowerWithCRT {
     private void multiplikateExponent (int index) {
         multiplikationsCounter = multiplikationsCounter.add(BigInteger.ONE);
         missingExponents.subtract(savedExponents.get(index));
-        currentValue = crt.multiplikate(currentValue,correspondingValues.get(index));
+        currentValue = crtForMulitplikation.multiplikate(currentValue,correspondingValues.get(index));
     }
 }
